@@ -3,8 +3,15 @@ import cls from './AnswerItem.module.css';
 
 
 const AnswerItem = props => {
+    const clsForLi = [cls.AnswerItem]
+
+    if (props.state) {
+        clsForLi.push(cls[props.state])
+    }
+    
     return (
-        <li className={cls.AnswerItem}>
+        <li className={clsForLi.join(' ')} //Добавляем классы
+            onClick={() => props.onAnswerClick(props.answer.id)}>
             { props.answer.text}
         </li>
     )
