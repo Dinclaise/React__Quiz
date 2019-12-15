@@ -1,8 +1,17 @@
 import React from 'react';
 import cls from './FinishedQuiz.module.css';
+import Button from '../UI/Button/Button';
 
 
 const FinishedQuiz = props => {
+    const successCount = Object.keys(props.results).reduce((total, key) => {
+        if (props.results[key] === 'success') {
+            total++
+        }
+
+        return total;
+    }, 0)
+
     return (
         <div className={cls.FinishedQuiz}>
             <ul>
@@ -20,24 +29,15 @@ const FinishedQuiz = props => {
                         </li>
                     )
                 })}
-                {/* <li>
-                    <strong>1.</strong>
-                    How are you?
-                    <i className={'fas fa-error' + cls.error} />
-                </li>
-                <li>
-                    <strong>2.</strong>
-                    How are you?
-                    <i className={'fas fa-check' + cls.success} />
-                </li> */}
             </ul>
 
             <p>
-                Correct 4 of 10
+                Correct {successCount} of {props.quiz.length}
             </p>
 
             <div>
-                <button>Again</button>
+                <Button onClick={props.onRetry} type="primary" >Try Again</Button>
+                <Button  type="success" >Go to the list of texts</Button>
             </div>
         </div>
     )

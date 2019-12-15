@@ -17,18 +17,18 @@
     margin-left: 10px;
 }
 
-.square {
+/* .square {
     display: block;
     width: 10px;
     height: 10px;
     background: rgba(161, 249, 69, .7);
-}
+} */
 
 .success {
-    background: rgba(161, 249, 69, .7);
+    color: rgba(161, 249, 69, .7);
     
 }
 
 .error {
-    background: rgba(240, 87, 108, .7);
+    color: rgba(240, 87, 108, .7);
 }
