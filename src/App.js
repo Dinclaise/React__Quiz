@@ -3,16 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 import Layout from './hoc/Layout/Layout';
 import Quiz from './containers/Quiz/Quiz';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-// import { library } from '@fortawesome/fontawesome-svg-core'
-
-// library.add(fab, faAngleDown)
+import QuizList from './containers/QuizList/QuizList';
+import Auth from './containers/Auth/Auth';
+import QuizCreator from './containers/QuizCreator/QuizCreator';
+import {Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
     <Layout>
-      <Quiz />
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <Route path="/quiz-creator" component={QuizCreator} />
+        <Route path="/quiz/:id" component={Quiz} />
+        <Route path="/" component={QuizList} />
+      </Switch>
     </Layout>
   );
 }
