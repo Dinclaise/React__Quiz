@@ -103,21 +103,20 @@ class Quiz extends Component {
                     {
                         this.state.loading 
                         ? <Loader />
-
                         : this.state.isFinished 
-                        ? <FinishedQuiz 
-                            results={this.state.results}
-                            quiz={this.state.quiz}
-                            onRetry={this.retryHandler}
-                            />
-                        : <ActiveQuiz 
-                            answers={this.state.quiz[this.state.activeQuestion].answers}
-                            question={this.state.quiz[this.state.activeQuestion].question}
-                            onAnswerClick={this.onAnswerClickHandler}
-                            quizLength={this.state.quiz.length}
-                            answerNumber={this.state.activeQuestion + 1} // выводим не индекс = 0, а 1
-                            state={this.state.answerState}
-                            />
+                            ? <FinishedQuiz 
+                                results={this.state.results}
+                                quiz={this.state.quiz}
+                                onRetry={this.retryHandler}
+                                />
+                            : <ActiveQuiz 
+                                answers={this.state.quiz[this.state.activeQuestion].answers}
+                                question={this.state.quiz[this.state.activeQuestion].question}
+                                onAnswerClick={this.onAnswerClickHandler}
+                                quizLength={this.state.quiz.length}
+                                answerNumber={this.state.activeQuestion + 1} // выводим не индекс = 0, а 1
+                                state={this.state.answerState}
+                                />
                     }
                     
                 </div>
