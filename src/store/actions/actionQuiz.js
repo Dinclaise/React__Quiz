@@ -35,7 +35,7 @@ export function fetchQuizById(quizId) {
     return async dispatch => {
         dispatch(fetchQuizesStart())
 
-        console.log(this.props.match.params.id);
+        // console.log(this.props.match.params.id);
         try {
             const response = await axios.get(`/quizes/${quizId}.json`);
             const quiz = response.data;
@@ -44,7 +44,7 @@ export function fetchQuizById(quizId) {
         } catch (e) {
             dispatch(fetchQuizesError(e));
         }
-        console.log('Quiz id:', this.props.match.params.id);
+        // console.log('Quiz id:', this.props.match.params.id);
     }
 }
 
@@ -96,10 +96,17 @@ export function quizNextQuestion(number) {
     }
 }
 
+export function retryQuiz() {
+    return {
+        type: QUIZ_RETRY
+    }
+}
+
 export function quizAnswerClick(answerId) {
     return (dispatch, getState) => {
         // This function does not give a double answer to the asked question.
         const state = getState().quiz;
+
         if (state.answerState) {
             const key = Object.keys(state.answerState)[0]
             if (state.answerState[key] === 'success') {
@@ -139,8 +146,3 @@ function isQuizFinished(state) {
     return state.activeQuestion + 1 === state.quiz.length 
 }
 
-export function retryQuiz() {
-    return {
-        type: QUIZ_RETRY
-    }
-}

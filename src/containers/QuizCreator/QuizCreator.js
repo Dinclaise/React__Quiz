@@ -71,9 +71,9 @@ class QuizCreator extends Component {
         event.preventDefault();
 
            this.setState({
-            isFormValid: false,
-            rightAnswerId: 1,
-            formControls: createFormControls()
+                isFormValid: false,
+                rightAnswerId: 1,
+                formControls: createFormControls()
             })
             this.props.finishCreateQuiz();
 
@@ -126,7 +126,6 @@ class QuizCreator extends Component {
     }
 
     render() {
-
         const select = <Select 
                 label="Choose correct answer" 
                 value={this.state.rightAnswerId}
@@ -146,6 +145,7 @@ class QuizCreator extends Component {
                     <form onSubmit={this.submitHandler}>
 
                         {this.renderControls()}
+                        
                         {select}
 
                         <Button 

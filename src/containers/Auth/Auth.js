@@ -58,7 +58,7 @@ class Auth extends Component {
         
     }
 
-    submitHandler = (event) => {
+    submitHandler = event => {
         event.preventDefault();
     }
 

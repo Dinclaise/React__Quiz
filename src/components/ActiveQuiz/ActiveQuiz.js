@@ -3,7 +3,7 @@ import cls from './ActiveQuiz.module.css';
 import AnswersList from './AnswersList/AnswersList';
 
 
-const ActiveQuiz = (props) => {
+const ActiveQuiz = props => {
     return (
         <div className={cls.ActiveQuiz}>
             <p className={cls.question}>

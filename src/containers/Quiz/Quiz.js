@@ -25,7 +25,7 @@ class Quiz extends Component {
                     <h1>Answer to all questions.</h1>
                     
                     {
-                        this.props.loading && !this.props.quiz 
+                        this.props.loading || !this.props.quiz 
                         ? <Loader />
                         : this.props.isFinished 
                             ? <FinishedQuiz 

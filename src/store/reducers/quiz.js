@@ -15,7 +15,7 @@ const initialState = {
     isFinished: false,
     activeQuestion: 0,
     answerState: null, // { [id]: 'success' / 'error' }
-    quiz: [],
+    quiz: null,
 }
 
 export default function quizReducer(state = initialState, action) {

@@ -1,13 +1,11 @@
 import React from 'react';
 import cls from './Input.module.css';
 
+function isInvalid({valid, touched, shouldValidate}) {
+    return !valid && shouldValidate && touched;
+} 
 
 const Input = props => {
-
-    function isInvalid({valid, touched, shouldValidate}) {
-        return !valid && shouldValidate && touched;
-    }   
-
     const inputType = props.type || 'text';
     const clsInput = [cls.Input];
     const htmlFor = `${inputType}-${Math.random()}`;
@@ -26,11 +24,11 @@ const Input = props => {
                 onChange={props.onChange}
             />
 
-            { isInvalid(props) 
+            { 
+              isInvalid(props) 
                 ? <span>{props.errorMessage || 'Enter the correct value'}</span>
                 : null
             }
-            
         </div>
     )
 }
